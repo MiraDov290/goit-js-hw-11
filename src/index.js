@@ -12,7 +12,7 @@ const refs = {
 };
 
 const API_KEY = '38176704-7a0dd5a9a2fe56e0ef327804b';
-const BASE_URL = 'https://pixabay.com/api';
+const BASE_URL = 'https://pixabay.com/api/?key=38176704-7a0dd5a9a2fe56e0ef327804b&q=yellow+flowers&image_type=photo&pretty=true';
 const PER_PAG = '40';
 let changePage = 1;
 let changeQuery = '';
