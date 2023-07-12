@@ -1,7 +1,6 @@
-
 import './sass/index.scss';
 import NewsApiService from './js/api-service';
-import { script } from './js/script';
+import { lightbox } from './js/lightbox';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const refs = {
@@ -14,7 +13,6 @@ const newsApiService = new NewsApiService();
 
 refs.searchForm.addEventListener('submit', onSearch);
 refs.loadMoreBtn.addEventListener('click', onLoadMore);
-
 
 const options = {
   rootMargin: '50px',
@@ -32,7 +30,7 @@ function onSearch(element) {
   newsApiService.resetPage();
 
   if (newsApiService.query === '') {
-    Notify.warning('Please, fill the main field');
+    Notiflix.Notify.warning('Please, fill the main field');
     return;
   }
 
@@ -43,7 +41,7 @@ function onSearch(element) {
 
 function onLoadMore() {
   newsApiService.incrementPage();
-    fetchGallery();
+  fetchGallery();
 }
 
 async function fetchGallery() {
@@ -66,7 +64,7 @@ async function fetchGallery() {
 
   if (isShown < total) {
     Notify.success(`Hooray! We found ${total} images !!!`);
-      refs.loadMoreBtn.classList.remove('is-hidden', 'load-more');
+    refs.loadMoreBtn.classList.remove('is-hidden');
   }
 
   if (isShown >= total) {
@@ -115,6 +113,4 @@ function onRenderGallery(elements) {
   refs.galleryContainer.insertAdjacentHTML('beforeend', markup);
   lightbox.refresh();
 }
-
-
 
