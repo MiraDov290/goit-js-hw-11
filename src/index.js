@@ -30,13 +30,13 @@ function onSearch(element) {
   newsApiService.resetPage();
 
   if (newsApiService.query === '') {
-    Notiflix.Notify.warning('Please, fill the main field');
+    Notify.warning('Please, fill the main field');
     return;
   }
 
   isShown = 0;
   fetchGallery();
-  onRenderGallery(hits);
+  // onRenderGallery(hits);
 }
 
 function onLoadMore() {
